@@ -1,15 +1,17 @@
-const app = require("express");
-const loginRouter = app.Router();
+const express = require("express");
+
+const loginRouter = express.Router();
 
 const { Users } = require("../models/User");
+// loginRouter.post("/", (req, res) => {
 loginRouter.route("/").post(async (req, res, next) => {
-  //   const { email, password } = req.body;
-  const email = "amjad@desolint.com";
-  const password = "123456abc";
-  console.log("req.body", email);
+  const { email, password } = req.body;
+  // const email = "amjad@desolint.com";
+  // const password = "123456abc";
 
   try {
     const user = await Users.findOne({ email, password });
+
     if (!user) {
       res.status(401).json({
         message: "Login not successful",

@@ -2,6 +2,12 @@ const express = require("express");
 require("dotenv").config({ path: "./.env" });
 const path = require("path");
 const app = express();
+const bodyParser = require("body-parser");
+const cors = require("cors");
+
+app.use(bodyParser.json());
+app.use(cors());
+
 const dbo = require("./db/conn");
 const login = require("./routes/login");
 
