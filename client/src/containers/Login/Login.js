@@ -38,7 +38,7 @@ export default function Login() {
     };
     console.log(obj);
 
-    axios.post("/login", obj).then(async (res) => {
+    axios.post("/app/login", obj).then(async (res) => {
       console.log(res.data);
       if (res.data.user) {
         console.log(res.data.message, res.data.user);
