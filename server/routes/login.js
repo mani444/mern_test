@@ -5,6 +5,7 @@ const loginRouter = express.Router();
 const { Users } = require("../models/User");
 // loginRouter.post("/", (req, res) => {
 loginRouter.route("/").post(async (req, res, next) => {
+  console.log("req.body",req.body);
   const { email, password } = req.body;
   // const email = "amjad@desolint.com";
   // const password = "123456abc";
