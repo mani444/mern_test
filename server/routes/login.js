@@ -12,19 +12,22 @@ loginRouter.route("/").post(async (req, res, next) => {
 
   try {
     const user = await Users.findOne({ email, password });
-
+    console.log("user",user);
     if (!user) {
+      console.log("user not",user);
       res.status(401).json({
         message: "Login not successful",
         error: "User not found",
       });
     } else {
+      console.log("user found",user);
       res.status(200).json({
         message: "Login successful",
         user,
       });
     }
   } catch (error) {
+    console.log("user error",error);
     res.status(400).json({
       message: "An error occurred",
       error: error.message,
