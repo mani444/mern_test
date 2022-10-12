@@ -18,7 +18,7 @@ app.use("/login", login);
 
 const PORT = process.env.PORT || 5000;
 console.log(process.env.NODE_ENV);
-// __dirname = path.resolve();
+__dirname = path.resolve();
 console.log("__dirname", __dirname);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
