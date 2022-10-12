@@ -24,10 +24,10 @@ const validationSchema = yup.object({
 export default function Login() {
   let navigate = useNavigate();
 
-  const axiosInstance = axios.create({
+//   const axiosInstance = axios.create({
     // baseURL: process.env.REACT_APP_ABC || "http://localhost:4000",
-    baseURL: process.env.baseURL || "https://mern-test004.herokuapp.com/server/",
-  });
+//     baseURL: process.env.baseURL || "https://mern-test004.herokuapp.com/server/",
+//   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,7 +38,7 @@ export default function Login() {
     };
     console.log(obj);
 
-    axiosInstance.post("/Login", obj).then(async (res) => {
+    axios.post("/login", obj).then(async (res) => {
       console.log(res.data);
       if (res.data.user) {
         console.log(res.data.message, res.data.user);
